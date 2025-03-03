@@ -15,7 +15,7 @@
     padding-left: 0.5rem;
 }
 
-.groupsList {
+.groupsList, .invitationsList {
     padding: 10px;
 }
 
@@ -189,11 +189,6 @@
     box-shadow: 0 6px 12px rgba(29, 161, 242, 0.4);
   }
   
-  .accept-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.5);  /* Focus outline for accessibility */
-  }
-  
   .cancel-btn {
     background-color: white;
     color: #333;
@@ -210,11 +205,6 @@
     background-color: #f4f4f4;
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-  }
-  
-  .cancel-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);  /* Focus outline for accessibility */
   }
   
   .invitation-actions {

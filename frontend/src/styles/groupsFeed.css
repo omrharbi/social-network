@@ -1,4 +1,4 @@
-.myGroupsSide {
+.myGroupsSide, .groupInvitations {
     background-color: white;
     border-radius: 16px;
     padding: 1.5rem 0.5rem 1rem 0.5rem;
@@ -19,42 +19,30 @@
     padding: 10px;
 }
 
-.group-item {
+.group-item , .invitation-item {
     display: flex;
     align-items: center;
     padding: 10px;
     border-radius: 7px;
     gap: 10px;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
 }
 
-.group-item:hover {
+.group-item:hover, .invitation-item:hover {
     background-color: #f8f9fa;
 }
 
-.group-avatar {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 15px;
-    font-weight: bold;
-    color: #555;
-}
-
-.group-info {
+.group-info, .invitation-info {
     flex-grow: 1;
 }
 
-.group-title {
+.group-title, .invitation-title {
     font-weight: 500;
     margin-bottom: 5px;
     font-size: 15px;
 }
 
-.group-members {
+.group-members, .invitation-members {
     font-size: 0.7rem;
     color: #666;
 }
@@ -67,18 +55,22 @@
     border-radius: 20px;
     cursor: pointer;
     font-weight: 500;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(29, 161, 242, 0.3);
 }
 
 .open-group-btn:hover {
-    background-color: #1a91da;
+  background-color: #1a91da;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(29, 161, 242, 0.4);
 }
 
   .group-creator {
     display: flex;
     background-color: white;
     border-radius: 16px;
-    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    padding: 1.5rem 1.5rem 0.5rem 1.5rem;
     position: sticky;
     top: 80px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -102,14 +94,18 @@
     color: white;
     border: none;
     padding: 10px 20px;
-    border-radius: 20px;
+    border-radius: 16px;;
     cursor: pointer;
     font-weight: bold;
-    transition: background-color 0.2s;
+    transition: all 0.2s;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(29, 161, 242, 0.3);
   }
 
   .create-btn:hover {
     background-color: #1a91da;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(29, 161, 242, 0.4);
   }
 
   .groups-feed {
@@ -123,9 +119,8 @@
     background-color: white;
     border-radius: 12px;
     padding: 20px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-    transition: transform 0.2s;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
   }
 
   .feed-group-header {
@@ -163,11 +158,68 @@
     color: white;
     border: none;
     padding: 8px 16px;
-    border-radius: 4px;
+    border-radius: 7px;
     cursor: pointer;
-    transition: background-color 0.2s;
-  }
-  .join-group-btn:hover {
-    background-color: #1a91da;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(29, 161, 242, 0.3);
+    transition: all 0.2s;
   }
 
+  .join-group-btn:hover {
+    background-color: #1a91da;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(29, 161, 242, 0.4);
+  }
+
+  .accept-btn {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(29, 161, 242, 0.3);
+  }
+  
+  .accept-btn:hover {
+    background-color: #1a91da;
+    transform: translateY(-2px);  /* Slight lift effect */
+    box-shadow: 0 6px 12px rgba(29, 161, 242, 0.4);
+  }
+  
+  .accept-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(29, 161, 242, 0.5);  /* Focus outline for accessibility */
+  }
+  
+  .cancel-btn {
+    background-color: white;
+    color: #333;
+    border: 1px solid #ccc;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: 600;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cancel-btn:hover {
+    background-color: #f4f4f4;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  }
+  
+  .cancel-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);  /* Focus outline for accessibility */
+  }
+  
+  .invitation-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    align-items: center;
+  }

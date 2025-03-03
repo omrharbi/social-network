@@ -11,7 +11,7 @@ import (
 
 func CreateGroup(gp models.Groups) error {
 	query := `INSERT INTO groups(title  , description  , creator_id) VALUES (? , ? , ?)`
-	res, err := db.DB.Exec(query, strings.TrimSpace(gp.Title), strings.TrimSpace(gp.Description), gp.Owner)
+	res, err := db.DB.Exec(query, strings.TrimSpace(gp.Title), strings.TrimSpace(gp.Description), gp.CreatorId)
 	if err != nil {
 		return err
 	}
@@ -20,7 +20,7 @@ func CreateGroup(gp models.Groups) error {
 		return err
 	}
 	query = `INSERT INTO group_members(group_id , user_id )`
-	_, err = db.DB.Exec(query, lastId, gp.Owner)
+	_, err = db.DB.Exec(query, lastId, gp.CreatorId)
 	return err
 }
 

@@ -1,160 +1,173 @@
-.group_avatar {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 2px solid white;
-    background: url("../components/icons/avatarGroups.svg") no-repeat center/cover;
-    box-shadow: 0 3px 5px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
-
-.avatar-large {
-    width: 80px;
-    height: 80px;
-}
-
-.text-muted {
-    color: #8e8e8e;
-}
-
-.group-sidebar {
-    max-width: 18rem;
-    min-width: 16rem;
+.myGroupsSide {
     background-color: white;
     border-radius: 16px;
-    padding: 1.5rem;
+    padding: 1.5rem 0.5rem 1rem 0.5rem;
+    position: -webkit-sticky;
     position: sticky;
     top: 80px;
+    height: -moz-fit-content;
     height: fit-content;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    margin: 0 1rem;  /* Add space between sidebar and content */
 }
 
-.groups {
+.header h2 {
+    color: #333;
+    padding-left: 0.5rem;
+}
+
+.groupsList {
+    padding: 10px;
+}
+
+.group-item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1.5rem; /* Space between groups */
-    margin: 1.5rem;
-    justify-content: center;  /* Center groups */
-}
-
-/* Responsive Design */
-@media (max-width: 1024px) {
-    .group-sidebar {
-        max-width: 100%;
-        position: relative;
-        top: 0;
-        margin-bottom: 1.5rem;
-    }
-
-    .groups {
-        margin: 1rem;
-        gap: 1rem;
-    }
-}
-
-@media (max-width: 768px) {
-    .groups {
-        flex-direction: column;
-        padding: 1rem;
-        margin: 0;
-    }
-}
-
-.group-header {
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    padding: 10px;
+    border-radius: 7px;
+    gap: 10px;
+    transition: background-color 0.2s;
 }
 
-.group-header h2 {
-    margin: 1rem 0 0.25rem;
-    font-size: 1.2rem;
-    font-weight: 600;
+.group-item:hover {
+    background-color: #f8f9fa;
 }
 
-/* Group Stats */
-.group-stats {
+.group-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
     display: flex;
-    grid-template-columns: repeat(2, 1fr);
-    text-align: center;
-    margin: 1.5rem 0;
-    gap: 0.5rem;
-    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-weight: bold;
+    color: #555;
 }
 
-.invitation-button{
+.group-info {
+    flex-grow: 1;
+}
+
+.group-title {
+    font-weight: 500;
+    margin-bottom: 5px;
+    font-size: 15px;
+}
+
+.group-members {
+    font-size: 0.7rem;
+    color: #666;
+}
+
+.open-group-btn {
     background-color: #1da1f2;
     color: white;
     border: none;
-    padding: 0.75rem;
-    border-radius: 8px;
-    width: 50%;
+    padding: 8px 16px;
+    border-radius: 20px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-    margin-left: 10px;
+    font-weight: 500;
+    transition: background-color 0.2s;
 }
 
-.group-stats h3 {
-    font-size: 1.1rem;
-    font-weight: 600;
-    margin-bottom: 0.25rem;
-}
-
-.invitation {
-    display: flex;
-
-}
-
-.invitation-button.reject {
-    background-color: #cc1628;
-}
-
-/* Join Button */
-.join-button {
-    background-color: #1da1f2;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 8px;
-    width: 100%;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
-
-.open-button {
-    background-color: #02b21d;
-    color: white;
-    border: none;
-    padding: 0.75rem;
-    border-radius: 8px;
-    width: 100%;
-    cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
-
-.join-button:hover {
+.open-group-btn:hover {
     background-color: #1a91da;
 }
 
-.pending-button {
-    background-color: #ffc107;
+  .group-creator {
+    display: flex;
+    background-color: white;
+    border-radius: 16px;
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    position: sticky;
+    top: 80px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+
+  .creator-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .creator-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .create-btn {
+    background-color: #1da1f2;
     color: white;
     border: none;
-    padding: 0.75rem;
-    border-radius: 8px;
-    width: 100%;
+    padding: 10px 20px;
+    border-radius: 20px;
     cursor: pointer;
-    font-weight: 600;
-    transition: background-color 0.2s ease;
-}
+    font-weight: bold;
+    transition: background-color 0.2s;
+  }
 
-/* Text Muted */
-.text-muted {
-    color: #6c757d;
+  .create-btn:hover {
+    background-color: #1a91da;
+  }
+
+  .groups-feed {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    
+  }
+
+  .feed-group-item {
+    background-color: white;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .feed-group-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .feed-group-title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+  .feed-group-date {
+    color: #888;
     font-size: 0.9rem;
-}
+  }
+  .feed-group-description {
+    color: #555;
+    margin-bottom: 15px;
+    line-height: 1.5;
+  }
+  .feed-group-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .feed-group-meta {
+    color: #888;
+    font-size: 0.9rem;
+  }
+
+  .join-group-btn {
+    background-color: #1da1f2;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .join-group-btn:hover {
+    background-color: #1a91da;
+  }
+

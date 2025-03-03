@@ -21,7 +21,7 @@ func CreateGroup(w http.ResponseWriter, r *http.Request) {
 		utils.JsonResponse(w, "uncorrected info", http.StatusBadRequest)
 		return
 	}
-	groupInfo.Owner = r.Context().Value("userId").(int)
+	groupInfo.CreatorId = r.Context().Value("userId").(int)
 	codeStatus, err := services.CreateGroup(groupInfo)
 	if err != nil {
 		utils.JsonResponse(w, err.Error(), codeStatus)

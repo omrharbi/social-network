@@ -18,7 +18,7 @@ func CheckCanUSendMessage(Receivers string, Userid int) error {
     var profileType string
     err := db.DB.QueryRow(query1, recieverid).Scan(&profileType)
     if err != nil {
-        return err
+        return errors.New("User not found")
     }
     if profileType == "private" {
         query2 := "SELECT COUNT(*) FROM followers WHERE follower_id = ? AND following_id = ? OR following_id = ? AND follower_id = ?"

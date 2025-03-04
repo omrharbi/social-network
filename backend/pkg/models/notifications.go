@@ -8,4 +8,5 @@ type UnreadNotification struct {
 	Details    string
 	Readstatus string
 	Sent_at    string
+	Groupid    int
 }

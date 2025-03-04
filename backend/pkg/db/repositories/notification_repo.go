@@ -8,7 +8,7 @@ import (
 )
 
 func GetNotification(userid int) ([]models.UnreadNotification, error) {
-	query := `SELECT id, user_id, sender_id, type, details, read_status, created_at FROM notifications WHERE user_id = ? AND type != 'messageuser'`
+	query := `SELECT id, user_id, sender_id, type, groupe_id, details, read_status, created_at FROM notifications WHERE user_id = ? AND type != 'messageuser'`
 	rows, err := db.DB.Query(query, userid)
 	if err != nil {
 		return []models.UnreadNotification{}, err
@@ -16,11 +16,10 @@ func GetNotification(userid int) ([]models.UnreadNotification, error) {
 	defer rows.Close()
 	var data []models.UnreadNotification
 	for rows.Next() {
-		var Senderid int
-		var Userid int
+		var Senderid, Userid, Groupid int
 		var Sent_at time.Time
 		var dataNotification models.UnreadNotification
-		err := rows.Scan(&dataNotification.Id, &Userid, &Senderid, &dataNotification.Type, &dataNotification.Details, &dataNotification.Readstatus, &Sent_at)
+		err := rows.Scan(&dataNotification.Id, &Userid, Groupid, &Senderid, &dataNotification.Type, &dataNotification.Details, &dataNotification.Readstatus, &Sent_at)
 		if err != nil {
 			return []models.UnreadNotification{}, err
 		}
@@ -35,10 +34,10 @@ func GetNotification(userid int) ([]models.UnreadNotification, error) {
 }
 
 func AddNotification(msg models.Message, client *models.Client, Type string, sent_at string) error {
-	query := `INSERT INTO notifications (user_id, sender_id, type, details) VALUES (?, ?, ?, ?)`
+	query := `INSERT INTO notifications (user_id, sender_id, group_id, type, details) VALUES (?, ?, ?, ?)`
 	for _, receiver := range msg.Receivers {
 		recieverid := GetUserIdByNickName(receiver)
-		_, err := db.DB.Exec(query, recieverid, client.Userid, Type, msg.Content)
+		_, err := db.DB.Exec(query, recieverid, client.Userid, msg.Groupid, Type, msg.Content)
 		if err != nil {
 			return err
 		}

@@ -12,6 +12,7 @@ func SetupRoutes() http.Handler {
 	mux.HandleFunc("/api/signup", controllers.Signup)
 	mux.HandleFunc("/api/login", controllers.Login)
 	mux.Handle("/api/logout", middleware.AuthMiddleware(http.HandlerFunc(controllers.Logout)))
+	mux.Handle("/api/update", middleware.AuthMiddleware(http.HandlerFunc(controllers.UpdateProfile)))
 	mux.Handle("/api/user/reactions", middleware.AuthMiddleware(http.HandlerFunc(controllers.HandleReaction)))
 	mux.Handle("/api/group/list", middleware.AuthMiddleware(http.HandlerFunc(controllers.ListGroups)))
 	mux.Handle("/api/group/create", middleware.AuthMiddleware(http.HandlerFunc(controllers.CreateGroup)))

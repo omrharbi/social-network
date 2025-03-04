@@ -1,6 +1,6 @@
 "use client";
 
-import { handleNotification } from './notification.js'
+import { handleNotification, sendNotification } from './notification.js'
 import { Getmessagesusers, receiveMessageuser, receiveMessageGroup, receiveTyping, Getmessagesgroups } from './messages.js';
 
 export let socket;
@@ -116,7 +116,16 @@ export function ReceiveOnlineStatus(data) {
 
 }
 
+// function sendNotification(){
+//     const data = {
+//         type: "follow",
+//         id: "1",
+//         id_user: "1",
+        
 
+//     };
+//     safeSend(data);
+// }
 
 
 
